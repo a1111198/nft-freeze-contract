@@ -23,19 +23,19 @@ module.exports = {
       //   blockNumber: 13134300
       // },
       // blockGasLimit: 12000000
-    },
-    sepolia: {
-      url: API_URL,
-      accounts: [`0x${PRIVATE_KEY2}`]
-    },
-    holesky: {
-      url: API_URL_HOLESKY,
-      accounts: [`0x${PRIVATE_KEY2}`]
-    },
-    sepolia1: {
-      url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`]
     }
+    // sepolia: {
+    //   url: API_URL,
+    //   accounts: [`0x${PRIVATE_KEY2}`]
+    // },
+    // holesky: {
+    //   url: API_URL_HOLESKY,
+    //   accounts: [`0x${PRIVATE_KEY2}`]
+    // },
+    // sepolia1: {
+    //   url: API_URL,
+    //   accounts: [`0x${PRIVATE_KEY}`]
+    // }
   },
   etherscan: {
     apiKey: {
