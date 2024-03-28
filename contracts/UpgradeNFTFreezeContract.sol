@@ -110,15 +110,12 @@ contract UpgradeNFTFreezeContract is
 
         IERC721 nftContract = IERC721(nftAddress);
 
-        --tokensCount;
-        while (true) {
+        for (uint256 i = 0; i < tokensCount; ++i) {
             nftContract.safeTransferFrom(
                 msg.sender,
                 address(this),
-                tokenIds[tokensCount]
+                tokenIds[i]
             );
-            if (tokensCount == 0) break;
-            --tokensCount;
         }
 
         // Emitting events to acknowledge the freeze operation.
@@ -145,7 +142,6 @@ contract UpgradeNFTFreezeContract is
         require(tokensCount > 0, "E02"); // Ensures there are NFTs to transfer.
 
         IERC721 nftContract = IERC721(nftAddress);
-
         --tokensCount;
         while (true) {
             nftContract.safeTransferFrom(
@@ -153,6 +149,7 @@ contract UpgradeNFTFreezeContract is
                 recipient,
                 tokenIds[tokensCount]
             );
+
             if (tokensCount == 0) break;
             --tokensCount;
         }

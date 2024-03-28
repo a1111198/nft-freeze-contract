@@ -17,7 +17,11 @@ import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
  * to this contract. It is upgradeable and leverages OpenZeppelin's
  * Ownable and Initializable contracts for ownership management and safe initialization.
  */
-contract NFTFreezeContract is Initializable, OwnableUpgradeable {
+contract NFTFreezeContract is
+    Initializable,
+    OwnableUpgradeable,
+    IERC721Receiver
+{
     address public nftAddress;
     // Modifier to ensure the address is not the zero address
     modifier nonZeroAddress(address _address) {
@@ -70,10 +74,8 @@ contract NFTFreezeContract is Initializable, OwnableUpgradeable {
         address /* from */,
         uint256 /* tokenId */,
         bytes calldata /* data */
-    ) external pure returns (bytes memory) {
-        return "abcd";
-
-        //return this.onERC721Received.selector;
+    ) external pure override returns (bytes4) {
+        return this.onERC721Received.selector;
     }
 
     /**
